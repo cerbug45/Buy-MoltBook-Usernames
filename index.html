@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moltbook Premium Kullanıcı Adları | Satışta</title>
+    <title>Moltbook Premium Usernames | For Sale</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -34,7 +34,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated Background */
         body::before {
             content: '';
             position: fixed;
@@ -55,7 +54,6 @@
             padding: 0 24px;
         }
 
-        /* Header */
         header {
             padding: 48px 0 24px;
             text-align: center;
@@ -81,7 +79,6 @@
             animation: slideDown 0.8s ease-out 0.2s both;
         }
 
-        /* Contact Section */
         .contact-banner {
             background: linear-gradient(135deg, rgba(0, 255, 247, 0.1) 0%, rgba(123, 47, 247, 0.1) 100%);
             border: 1px solid var(--border-color);
@@ -126,7 +123,7 @@
             fill: currentColor;
         }
 
-        /* Search Bar */
+        /* Search Container */
         .search-container {
             margin: 40px 0;
             animation: slideDown 0.8s ease-out 0.6s both;
@@ -135,7 +132,7 @@
         .search-wrapper {
             position: relative;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0 auto 24px;
         }
 
         #searchInput {
@@ -168,6 +165,72 @@
             color: var(--text-secondary);
         }
 
+        /* Filters */
+        .filters-section {
+            margin: 32px 0;
+        }
+
+        .filter-group {
+            margin-bottom: 20px;
+        }
+
+        .filter-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            display: block;
+            font-weight: 500;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            border-color: var(--accent-primary);
+            color: #000;
+            font-weight: 600;
+        }
+
+        .clear-filters {
+            padding: 10px 24px;
+            background: transparent;
+            border: 1px solid rgba(255, 100, 100, 0.3);
+            border-radius: 8px;
+            color: #ff6464;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .clear-filters:hover {
+            background: rgba(255, 100, 100, 0.1);
+            border-color: #ff6464;
+        }
+
         /* Stats */
         .stats {
             display: flex;
@@ -194,6 +257,39 @@
             color: var(--text-secondary);
             font-size: 0.9rem;
             margin-top: 4px;
+        }
+
+        /* Active Filters Display */
+        .active-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin: 16px 0;
+            min-height: 32px;
+        }
+
+        .active-filter-tag {
+            padding: 6px 12px;
+            background: rgba(0, 255, 247, 0.1);
+            border: 1px solid var(--accent-primary);
+            border-radius: 6px;
+            color: var(--accent-primary);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .remove-filter {
+            cursor: pointer;
+            font-weight: bold;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .remove-filter:hover {
+            opacity: 1;
         }
 
         /* Username Grid */
@@ -246,6 +342,13 @@
             word-break: break-word;
         }
 
+        .username-meta {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            opacity: 0.7;
+        }
+
         .copy-hint {
             font-size: 0.75rem;
             color: var(--text-secondary);
@@ -258,7 +361,7 @@
             opacity: 1;
         }
 
-        /* Toast Notification */
+        /* Toast */
         .toast {
             position: fixed;
             bottom: 32px;
@@ -302,7 +405,6 @@
             color: var(--text-secondary);
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 48px 24px;
@@ -310,7 +412,6 @@
             font-size: 0.9rem;
         }
 
-        /* Animations */
         @keyframes slideDown {
             from {
                 opacity: 0;
@@ -331,7 +432,6 @@
             }
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .username-grid {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -346,6 +446,15 @@
                 font-size: 2rem;
             }
 
+            .filter-buttons {
+                gap: 8px;
+            }
+
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+
             .toast {
                 right: 16px;
                 bottom: 16px;
@@ -358,11 +467,11 @@
     <div class="container">
         <header>
             <h1>@MoltBook</h1>
-            <p class="subtitle">Premium Kullanıcı Adları Satışta</p>
+            <p class="subtitle">Premium Usernames For Sale</p>
         </header>
 
         <div class="contact-banner">
-            <h2>İletişim & Satın Alma</h2>
+            <h2>Contact & Purchase</h2>
             <a href="https://t.me/whalsapp" target="_blank" class="telegram-link">
                 <svg class="telegram-icon" viewBox="0 0 24 24">
                     <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
@@ -376,21 +485,53 @@
                 <input 
                     type="text" 
                     id="searchInput" 
-                    placeholder="Kullanıcı adı ara..."
+                    placeholder="Search usernames..."
                     autocomplete="off"
                 >
                 <span class="search-icon">🔍</span>
             </div>
+
+            <div class="filters-section">
+                <div class="filter-group">
+                    <span class="filter-label">Filter by Length</span>
+                    <div class="filter-buttons">
+                        <button class="filter-btn" data-filter="length" data-value="3">3 chars</button>
+                        <button class="filter-btn" data-filter="length" data-value="4">4 chars</button>
+                        <button class="filter-btn" data-filter="length" data-value="5">5 chars</button>
+                        <button class="filter-btn" data-filter="length" data-value="6">6 chars</button>
+                        <button class="filter-btn" data-filter="length" data-value="7-8">7-8 chars</button>
+                        <button class="filter-btn" data-filter="length" data-value="9-10">9-10 chars</button>
+                        <button class="filter-btn" data-filter="length" data-value="11+">11+ chars</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <span class="filter-label">Filter by Type</span>
+                    <div class="filter-buttons">
+                        <button class="filter-btn" data-filter="type" data-value="letters-only">Letters Only</button>
+                        <button class="filter-btn" data-filter="type" data-value="numbers-only">Numbers Only</button>
+                        <button class="filter-btn" data-filter="type" data-value="has-numbers">Has Numbers</button>
+                        <button class="filter-btn" data-filter="type" data-value="has-special">Special Chars</button>
+                        <button class="filter-btn" data-filter="type" data-value="capitalized">Capitalized</button>
+                    </div>
+                </div>
+
+                <div class="filter-buttons" style="margin-top: 16px;">
+                    <button class="clear-filters" onclick="clearAllFilters()">Clear All Filters</button>
+                </div>
+            </div>
+
+            <div class="active-filters" id="activeFilters"></div>
         </div>
 
         <div class="stats">
             <div class="stat-item">
                 <span class="stat-number" id="totalCount">0</span>
-                <span class="stat-label">Toplam Kullanıcı Adı</span>
+                <span class="stat-label">Total Usernames</span>
             </div>
             <div class="stat-item">
                 <span class="stat-number" id="displayedCount">0</span>
-                <span class="stat-label">Gösterilen</span>
+                <span class="stat-label">Displayed</span>
             </div>
         </div>
 
@@ -398,34 +539,101 @@
 
         <div class="no-results" id="noResults">
             <div class="no-results-icon">🔍</div>
-            <h3>Sonuç Bulunamadı</h3>
-            <p>Aradığınız kullanıcı adı bulunamadı.</p>
+            <h3>No Results Found</h3>
+            <p>Try adjusting your search or filters.</p>
         </div>
 
         <footer>
-            <p>© 2026 Moltbook Kullanıcı Adları | Tüm hakları saklıdır</p>
-            <p style="margin-top: 8px; font-size: 0.8rem;">Liste düzenli olarak güncellenmektedir.</p>
+            <p>© 2026 Moltbook Usernames | All rights reserved</p>
+            <p style="margin-top: 8px; font-size: 0.8rem;">List updated regularly.</p>
         </footer>
     </div>
 
     <div class="toast" id="toast">
-        ✓ Panoya kopyalandı!
+        ✓ Copied to clipboard!
     </div>
 
     <script>
         let allUsernames = [];
+        let activeFilters = {
+            length: null,
+            type: null
+        };
 
-        // Load usernames from JSON
+        // Load usernames
         async function loadUsernames() {
             try {
                 const response = await fetch('usernames.json');
                 const data = await response.json();
                 allUsernames = data.usernames;
-                displayUsernames(allUsernames);
+                applyFilters();
                 updateStats(allUsernames.length, allUsernames.length);
             } catch (error) {
-                console.error('Kullanıcı adları yüklenirken hata:', error);
+                console.error('Error loading usernames:', error);
             }
+        }
+
+        // Filter functions
+        function matchesLength(username, lengthFilter) {
+            const len = username.length;
+            switch(lengthFilter) {
+                case '3': return len === 3;
+                case '4': return len === 4;
+                case '5': return len === 5;
+                case '6': return len === 6;
+                case '7-8': return len >= 7 && len <= 8;
+                case '9-10': return len >= 9 && len <= 10;
+                case '11+': return len >= 11;
+                default: return true;
+            }
+        }
+
+        function matchesType(username, typeFilter) {
+            switch(typeFilter) {
+                case 'letters-only':
+                    return /^[a-zA-Z]+$/.test(username);
+                case 'numbers-only':
+                    return /^[0-9]+$/.test(username);
+                case 'has-numbers':
+                    return /[0-9]/.test(username);
+                case 'has-special':
+                    return /[^a-zA-Z0-9]/.test(username);
+                case 'capitalized':
+                    return /[A-Z]/.test(username);
+                default:
+                    return true;
+            }
+        }
+
+        function applyFilters() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            let filtered = allUsernames;
+
+            // Apply search
+            if (searchTerm !== '') {
+                filtered = filtered.filter(username => 
+                    username.toLowerCase().includes(searchTerm)
+                );
+            }
+
+            // Apply length filter
+            if (activeFilters.length) {
+                filtered = filtered.filter(username => 
+                    matchesLength(username, activeFilters.length)
+                );
+            }
+
+            // Apply type filter
+            if (activeFilters.type) {
+                filtered = filtered.filter(username => 
+                    matchesType(username, activeFilters.type)
+                );
+            }
+
+            displayUsernames(filtered);
+            updateStats(allUsernames.length, filtered.length);
+            updateActiveFiltersDisplay();
         }
 
         // Display usernames
@@ -435,66 +643,4 @@
 
             if (usernames.length === 0) {
                 grid.style.display = 'none';
-                noResults.classList.add('show');
-                return;
-            }
-
-            grid.style.display = 'grid';
-            noResults.classList.remove('show');
-
-            grid.innerHTML = usernames.map(username => `
-                <div class="username-card" onclick="copyToClipboard('${username}')">
-                    <div class="username">@${username}</div>
-                    <div class="copy-hint">Kopyalamak için tıkla</div>
-                </div>
-            `).join('');
-        }
-
-        // Copy to clipboard
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                showToast();
-            }).catch(err => {
-                console.error('Kopyalama hatası:', err);
-            });
-        }
-
-        // Show toast notification
-        function showToast() {
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 2000);
-        }
-
-        // Update stats
-        function updateStats(total, displayed) {
-            document.getElementById('totalCount').textContent = total;
-            document.getElementById('displayedCount').textContent = displayed;
-        }
-
-        // Search functionality
-        const searchInput = document.getElementById('searchInput');
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase().trim();
-            
-            if (searchTerm === '') {
-                displayUsernames(allUsernames);
-                updateStats(allUsernames.length, allUsernames.length);
-                return;
-            }
-
-            const filtered = allUsernames.filter(username => 
-                username.toLowerCase().includes(searchTerm)
-            );
-
-            displayUsernames(filtered);
-            updateStats(allUsernames.length, filtered.length);
-        });
-
-        // Initialize
-        loadUsernames();
-    </script>
-</body>
-</html>
+                noResults.
