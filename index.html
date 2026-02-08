@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moltbook Premium Kullanıcı Adları | Satışta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0e27;
+            --bg-secondary: #141b3a;
+            --bg-card: #1a2347;
+            --accent-primary: #00fff7;
+            --accent-secondary: #7b2ff7;
+            --text-primary: #e8eaed;
+            --text-secondary: #9ba0b8;
+            --border-color: rgba(0, 255, 247, 0.1);
+            --shadow-glow: 0 0 20px rgba(0, 255, 247, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(123, 47, 247, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 255, 247, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 48px 0 24px;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            animation: slideDown 0.8s ease-out 0.2s both;
+        }
+
+        /* Contact Section */
+        .contact-banner {
+            background: linear-gradient(135deg, rgba(0, 255, 247, 0.1) 0%, rgba(123, 47, 247, 0.1) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 32px 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-glow);
+            animation: slideDown 0.8s ease-out 0.4s both;
+        }
+
+        .contact-banner h2 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--accent-primary);
+        }
+
+        .telegram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            color: #000;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 255, 247, 0.3);
+        }
+
+        .telegram-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 255, 247, 0.5);
+        }
+
+        .telegram-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        /* Search Bar */
+        .search-container {
+            margin: 40px 0;
+            animation: slideDown 0.8s ease-out 0.6s both;
+        }
+
+        .search-wrapper {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 18px 24px;
+            font-size: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        #searchInput:focus {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 4px rgba(0, 255, 247, 0.1);
+        }
+
+        #searchInput::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin: 32px 0;
+            flex-wrap: wrap;
+            animation: slideDown 0.8s ease-out 0.8s both;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        /* Username Grid */
+        .username-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 48px 0;
+            animation: fadeIn 1s ease-out 1s both;
+        }
+
+        .username-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .username-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 247, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .username-card:hover::before {
+            left: 100%;
+        }
+
+        .username-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .username {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            word-break: break-word;
+        }
+
+        .copy-hint {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .username-card:hover .copy-hint {
+            opacity: 1;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--accent-primary);
+            border-radius: 12px;
+            padding: 16px 24px;
+            box-shadow: 0 8px 30px rgba(0, 255, 247, 0.3);
+            transform: translateY(120px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 80px 24px;
+            display: none;
+        }
+
+        .no-results.show {
+            display: block;
+        }
+
+        .no-results-icon {
+            font-size: 4rem;
+            margin-bottom: 16px;
+            opacity: 0.3;
+        }
+
+        .no-results h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .username-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 12px;
+            }
+
+            .stats {
+                gap: 24px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .toast {
+                right: 16px;
+                bottom: 16px;
+                left: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>@MoltBook</h1>
+            <p class="subtitle">Premium Kullanıcı Adları Satışta</p>
+        </header>
+
+        <div class="contact-banner">
+            <h2>İletişim & Satın Alma</h2>
+            <a href="https://t.me/whalsapp" target="_blank" class="telegram-link">
+                <svg class="telegram-icon" viewBox="0 0 24 24">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+                </svg>
+                <span>@whalsapp</span>
+            </a>
+        </div>
+
+        <div class="search-container">
+            <div class="search-wrapper">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Kullanıcı adı ara..."
+                    autocomplete="off"
+                >
+                <span class="search-icon">🔍</span>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number" id="totalCount">0</span>
+                <span class="stat-label">Toplam Kullanıcı Adı</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="displayedCount">0</span>
+                <span class="stat-label">Gösterilen</span>
+            </div>
+        </div>
+
+        <div class="username-grid" id="usernameGrid"></div>
+
+        <div class="no-results" id="noResults">
+            <div class="no-results-icon">🔍</div>
+            <h3>Sonuç Bulunamadı</h3>
+            <p>Aradığınız kullanıcı adı bulunamadı.</p>
+        </div>
+
+        <footer>
+            <p>© 2026 Moltbook Kullanıcı Adları | Tüm hakları saklıdır</p>
+            <p style="margin-top: 8px; font-size: 0.8rem;">Liste düzenli olarak güncellenmektedir.</p>
+        </footer>
+    </div>
+
+    <div class="toast" id="toast">
+        ✓ Panoya kopyalandı!
+    </div>
+
+    <script>
+        let allUsernames = [];
+
+        // Load usernames from JSON
+        async function loadUsernames() {
+            try {
+                const response = await fetch('usernames.json');
+                const data = await response.json();
+                allUsernames = data.usernames;
+                displayUsernames(allUsernames);
+                updateStats(allUsernames.length, allUsernames.length);
+            } catch (error) {
+                console.error('Kullanıcı adları yüklenirken hata:', error);
+            }
+        }
+
+        // Display usernames
+        function displayUsernames(usernames) {
+            const grid = document.getElementById('usernameGrid');
+            const noResults = document.getElementById('noResults');
+
+            if (usernames.length === 0) {
+                grid.style.display = 'none';
+                noResults.classList.add('show');
+                return;
+            }
+
+            grid.style.display = 'grid';
+            noResults.classList.remove('show');
+
+            grid.innerHTML = usernames.map(username => `
+                <div class="username-card" onclick="copyToClipboard('${username}')">
+                    <div class="username">@${username}</div>
+                    <div class="copy-hint">Kopyalamak için tıkla</div>
+                </div>
+            `).join('');
+        }
+
+        // Copy to clipboard
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast();
+            }).catch(err => {
+                console.error('Kopyalama hatası:', err);
+            });
+        }
+
+        // Show toast notification
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        // Update stats
+        function updateStats(total, displayed) {
+            document.getElementById('totalCount').textContent = total;
+            document.getElementById('displayedCount').textContent = displayed;
+        }
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            
+            if (searchTerm === '') {
+                displayUsernames(allUsernames);
+                updateStats(allUsernames.length, allUsernames.length);
+                return;
+            }
+
+            const filtered = allUsernames.filter(username => 
+                username.toLowerCase().includes(searchTerm)
+            );
+
+            displayUsernames(filtered);
+            updateStats(allUsernames.length, filtered.length);
+        });
+
+        // Initialize
+        loadUsernames();
+    </script>
+</body>
+</html>
