@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moltbook Premium Usernames | For Sale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0e27;
+            --bg-secondary: #141b3a;
+            --bg-card: #1a2347;
+            --accent-primary: #00fff7;
+            --accent-secondary: #7b2ff7;
+            --text-primary: #e8eaed;
+            --text-secondary: #9ba0b8;
+            --border-color: rgba(0, 255, 247, 0.1);
+            --shadow-glow: 0 0 20px rgba(0, 255, 247, 0.15);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(123, 47, 247, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 255, 247, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+        header { padding: 48px 0 24px; text-align: center; position: relative; }
+        h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            animation: slideDown 0.8s ease-out;
+        }
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            animation: slideDown 0.8s ease-out 0.2s both;
+        }
+        .contact-banner {
+            background: linear-gradient(135deg, rgba(0, 255, 247, 0.1) 0%, rgba(123, 47, 247, 0.1) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 32px 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-glow);
+            animation: slideDown 0.8s ease-out 0.4s both;
+        }
+        .contact-banner h2 { font-size: 1.3rem; margin-bottom: 12px; color: var(--accent-primary); }
+        .telegram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            color: #000;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 255, 247, 0.3);
+        }
+        .telegram-link:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0, 255, 247, 0.5); }
+        .telegram-icon { width: 24px; height: 24px; fill: currentColor; }
+        .search-container { margin: 40px 0; animation: slideDown 0.8s ease-out 0.6s both; }
+        .search-wrapper { position: relative; max-width: 600px; margin: 0 auto 24px; }
+        #searchInput {
+            width: 100%;
+            padding: 18px 24px;
+            font-size: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        #searchInput:focus { border-color: var(--accent-primary); box-shadow: 0 0 0 4px rgba(0, 255, 247, 0.1); }
+        #searchInput::placeholder { color: var(--text-secondary); }
+        .search-icon { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: var(--text-secondary); }
+        .filters-section { margin: 32px 0; }
+        .filter-group { margin-bottom: 20px; }
+        .filter-label { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px; display: block; font-weight: 500; }
+        .filter-buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+        .filter-btn {
+            padding: 10px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .filter-btn:hover { border-color: var(--accent-primary); color: var(--text-primary); }
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            border-color: var(--accent-primary);
+            color: #000;
+            font-weight: 600;
+        }
+        .clear-filters {
+            padding: 10px 24px;
+            background: transparent;
+            border: 1px solid rgba(255, 100, 100, 0.3);
+            border-radius: 8px;
+            color: #ff6464;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .clear-filters:hover { background: rgba(255, 100, 100, 0.1); border-color: #ff6464; }
+        .stats { display: flex; justify-content: center; gap: 48px; margin: 32px 0; flex-wrap: wrap; animation: slideDown 0.8s ease-out 0.8s both; }
+        .stat-item { text-align: center; }
+        .stat-number { font-family: 'JetBrains Mono', monospace; font-size: 2.5rem; font-weight: 700; color: var(--accent-primary); display: block; }
+        .stat-label { color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px; }
+        .active-filters { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 16px 0; min-height: 32px; }
+        .active-filter-tag {
+            padding: 6px 12px;
+            background: rgba(0, 255, 247, 0.1);
+            border: 1px solid var(--accent-primary);
+            border-radius: 6px;
+            color: var(--accent-primary);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .remove-filter { cursor: pointer; font-weight: bold; opacity: 0.7; transition: opacity 0.2s; }
+        .remove-filter:hover { opacity: 1; }
+        .username-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 48px 0;
+            animation: fadeIn 1s ease-out 1s both;
+        }
+        .username-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .username-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 247, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        .username-card:hover::before { left: 100%; }
+        .username-card:hover { border-color: var(--accent-primary); transform: translateY(-4px); box-shadow: var(--shadow-glow); }
+        .username { font-family: 'JetBrains Mono', monospace; font-size: 1rem; font-weight: 500; color: var(--text-primary); word-break: break-word; }
+        .username-meta { font-size: 0.75rem; color: var(--text-secondary); margin-top: 8px; opacity: 0.7; }
+        .copy-hint { font-size: 0.75rem; color: var(--text-secondary); margin-top: 8px; opacity: 0; transition: opacity 0.3s ease; }
+        .username-card:hover .copy-hint { opacity: 1; }
+        .toast {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--accent-primary);
+            border-radius: 12px;
+            padding: 16px 24px;
+            box-shadow: 0 8px 30px rgba(0, 255, 247, 0.3);
+            transform: translateY(120px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+        .no-results { text-align: center; padding: 80px 24px; display: none; }
+        .no-results.show { display: block; }
+        .no-results-icon { font-size: 4rem; margin-bottom: 16px; opacity: 0.3; }
+        .no-results h3 { font-size: 1.5rem; margin-bottom: 8px; color: var(--text-secondary); }
+        footer { text-align: center; padding: 48px 24px; color: var(--text-secondary); font-size: 0.9rem; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @media (max-width: 768px) {
+            .username-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+            .stats { gap: 24px; }
+            .stat-number { font-size: 2rem; }
+            .filter-buttons { gap: 8px; }
+            .filter-btn { padding: 8px 16px; font-size: 0.85rem; }
+            .toast { right: 16px; bottom: 16px; left: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>@MoltBook</h1>
+            <p class="subtitle">Premium Usernames For Sale</p>
+        </header>
+
+        <div class="contact-banner">
+            <h2>Contact & Purchase</h2>
+            <a href="https://t.me/whalsapp" target="_blank" class="telegram-link">
+                <svg class="telegram-icon" viewBox="0 0 24 24">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+                </svg>
+                <span>@whalsapp</span>
+            </a>
+        </div>
+
+        <div class="search-container">
+            <div class="search-wrapper">
+                <input type="text" id="searchInput" placeholder="Search usernames..." autocomplete="off">
+                <span class="search-icon">🔍</span>
+            </div>
+
+            <div class="filters-section">
+                <div class="filter-group">
+                    <span class="filter-label">Filter by Length</span>
+                    <div class="filter-buttons">
+                        <button class="filter-btn" data-filter="length" data-value="3">3 chars</button>
+                        <button class="filter-btn" data-filter="length" data-value="4">4 chars</button>
+                        <button class="filter-btn" data-filter="length" data-value="5">5 chars</button>
+                        <button class="filter-btn" data-filter="length" data-value="6">6 chars</button>
+                        <button class="filter-btn" data-filter="length" data-value="7-8">7-8 chars</button>
+                        <button class="filter-btn" data-filter="length" data-value="9-10">9-10 chars</button>
+                        <button class="filter-btn" data-filter="length" data-value="11+">11+ chars</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <span class="filter-label">Filter by Type</span>
+                    <div class="filter-buttons">
+                        <button class="filter-btn" data-filter="type" data-value="letters-only">Letters Only</button>
+                        <button class="filter-btn" data-filter="type" data-value="numbers-only">Numbers Only</button>
+                        <button class="filter-btn" data-filter="type" data-value="has-numbers">Has Numbers</button>
+                        <button class="filter-btn" data-filter="type" data-value="has-special">Special Chars</button>
+                        <button class="filter-btn" data-filter="type" data-value="capitalized">Capitalized</button>
+                    </div>
+                </div>
+
+                <div class="filter-buttons" style="margin-top: 16px;">
+                    <button class="clear-filters" onclick="clearAllFilters()">Clear All Filters</button>
+                </div>
+            </div>
+
+            <div class="active-filters" id="activeFilters"></div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number" id="totalCount">0</span>
+                <span class="stat-label">Total Usernames</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="displayedCount">0</span>
+                <span class="stat-label">Displayed</span>
+            </div>
+        </div>
+
+        <div class="username-grid" id="usernameGrid"></div>
+
+        <div class="no-results" id="noResults">
+            <div class="no-results-icon">🔍</div>
+            <h3>No Results Found</h3>
+            <p>Try adjusting your search or filters.</p>
+        </div>
+
+        <footer>
+            <p>© 2026 Moltbook Usernames | All rights reserved</p>
+            <p style="margin-top: 8px; font-size: 0.8rem;">List updated regularly.</p>
+        </footer>
+    </div>
+
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+
+    <script>
+        const allUsernames = ["which", "available", "books", "daily", "island", "direct", "rules", "submit", "wanted", "operations", "excellent", "award", "completed", "traditional", "benefit", "watches", "musical", "colorado", "commerce", "ringtones", "scientific", "accounting", "generation", "arizona", "worked", "ipod", "baseball", "codes", "senate", "portable", "warranty", "professionals", "parameters", "vendor", "referred", "rings", "ticket", "conversion", "revision", "hole", "transit", "concern", "cables", "starts", "britain", "weblog", "portland", "typical", "governor", "swimming", "romance", "powers", "cinema", "humor", "lived", "flying", "cookies", "commissioner", "principle", "gross", "trend", "rhode", "scottish", "judgment", "inter", "ranking", "palace", "wins", "chile", "hungary", "nikon", "roses", "wooden", "incident", "diverse", "compaq", "florist", "packard", "encouraged", "loves", "dealtime", "holland", "quiz", "sleeping", "careful", "skype", "discharge", "acute", "northeast", "retired", "grew", "mobility", "activation", "toner", "locator", "regime", "hdtv", "scenario", "lovers", "testimony", "isolated", "bangladesh", "ecology", "unions", "warrant", "rochester", "stops", "guided", "impressive", "lectures", "landing", "absent", "sells", "ecuador", "millennium", "reflects", "cattle", "tile", "inquiries", "tribal", "dayton", "innocent", "syria", "interact", "handy", "mixing", "fitted", "transexual", "adipex", "lonely", "latitude", "tubes", "belly", "disturbed", "powerpoint", "alpine", "andale", "prospect", "homeland", "sheffield", "incomplete", "nightlife", "metallica", "naughty", "breathing", "gothic", "cigarettes", "patrol", "pest", "italiano", "renew", "antigua", "troubleshooting", "lasting", "whats", "banners", "gore", "passive", "scenic", "renewable", "issn", "firewire", "vsnet", "revisions", "papua", "bumper", "focal", "penetration", "terrain", "dependence", "exclusion", "flyer", "cameroon", "madness", "numeric", "cakes", "beside", "optimize", "namespace", "greensboro", "apnic", "naples", "prozac", "glucose", "persian", "choir", "poultry", "gentleman", "maiden", "fares", "ec2-user", "azureuser", "ablaze", "acetone", "alarm", "aliens", "alike", "arrive", "ashes", "astonish", "aviation", "baboon", "bonding", "bounce", "bristle", "browse", "brunette", "bullseye", "caboose", "cameo", "capitol", "captivate", "cautious", "cavalier", "cheek", "condiment", "copier", "cornflake", "craftsman", "crawfish", "crusher", "cubicle", "custard", "cytoplasm", "deface", "defiance", "defrost", "deity", "delicious", "doodle", "doorstep", "douche", "dreamboat", "duchess", "economist", "enamel", "energize", "enforced", "enjoyably", "excavator", "exclaim", "exquisite", "fifteen", "finale", "flyaway", "freeway", "friction", "garbage", "geiger", "grandpa", "hacksaw", "handlebar", "handsaw", "hangover", "hurler", "hurry", "icky", "illusion", "immersion", "jackpot", "jujitsu", "legume", "lethargic", "linguist", "matador", "modulator", "monsieur", "moonwalk", "morphine", "nanny", "nutty", "obedience", "octagon", "omission", "pandemic", "paprika", "pesky", "petunia", "prankish", "primal", "pristine", "probiotic", "prominent", "rehab", "relight", "remark", "remission", "replace", "safely", "salsa", "sandbank", "scandal", "scoff", "sequester", "serpent", "shamrock", "shiftless", "shone", "shriek", "shrine", "shuffle", "sizzle", "skater", "slain", "sloppy", "smasher", "smirk", "smitten", "spinner", "spleen", "squiggly", "staging", "starless", "stonewall", "stooge", "stove", "stowaway", "strategic", "supper", "supremacy", "surrender", "swinging", "symptom", "thrower", "tiling", "tingle", "tinsel", "tipper", "trident", "truce", "trustee", "ultimatum", "undead", "unsolved", "unspoken", "uprising", "usable", "vacant", "vengeful", "viable", "viewing", "violator", "voter", "yoga", "yummy", "Pyke", "Jungler", "Heal", "Airborne", "Shutdown", "Janna", "Morgana", "Nasus", "Noxus", "WitsEnd", "datamining", "spreadsheet", "Trojanhorse", "chandelure", "golbat", "magikarp", "magmar", "nidorino", "oddish", "paras", "steelix", "weavile", "goldeen", "kingdra", "latias", "sandile", "seedot", "shuckle", "skiddo", "artistry", "balls", "barrister", "bondage", "comedian", "effectiveness", "equator", "grandeur", "heads", "liner", "schoolboy", "schooner", "soccer", "suburb", "syndrome", "Akita", "Binturong", "Bulldog", "Himalayan", "Hummingbird", "Rattlesnake", "Shrew", "Stingray", "aaren", "aarika", "aartjan", "aarushi", "abagael", "abbey", "abbye", "abdalla", "abdallah", "abdullah", "abram", "abree", "abrianna", "abriel", "abrielle", "adair", "adalia", "adaline", "adara", "addia", "adelene", "adelheid", "adelia", "adelice", "adelina", "adelynn", "adena", "adeniyi", "adiana", "adina", "adorne", "adrea", "adreanna", "adria", "adriaens", "adriel", "adrien", "adriena", "adrienne", "aeriel", "afzal", "agace", "agata", "agathe", "agenia", "agnese", "agnesse", "agneta", "agnola", "agretha", "ailee", "ailene", "ailey", "ailina", "ailis", "aimil", "aindrea", "ainslee", "ainsleigh", "ainslie", "akemi", "akihiko", "akram", "aladin", "alain", "alanah", "alane", "alanna", "alasdair", "alastair", "albany", "albertina", "albertine", "albie", "albina", "aldrich", "aldrin", "aleah", "alecia", "aleda", "alena", "alene", "alesandro", "alese", "alessandra", "alexandrina", "alexandru", "alexina", "alexine", "alexus", "alfreda", "aliana", "alica", "alicea", "alida", "aline", "alistair", "alisun", "alivia", "aliyah", "alleen", "allegra", "allene", "allianora", "allie", "allyce", "allyn", "allys", "allyson", "almeda", "alnoor", "alois", "aloise", "aloisia", "alonzo", "alphen", "alphonso", "alstine", "altay", "alton", "alvina", "alvinia", "alvira", "alwyn", "alyce", "alyshialynn", "alysia", "alyson", "alyss", "alysse", "amalie", "amalita", "amalle", "amand", "amandi", "amani", "amant", "amargo", "amaris", "amarjit", "amberly", "amberlyn", "ambrose", "ambur", "amelina", "amily", "amina", "amirah", "amitie", "amjad", "amour", "amparo", "amrik", "amrish", "anabal", "anais", "analiese", "analise", "anallese", "anallise", "anastasie", "anastassia", "anatola", "anatoli", "andaree", "andie", "andra", "andreana", "andree", "andrei", "andriette", "andromache", "anestassia", "anett", "anetta", "angeliek", "angelika", "angeline", "angelique", "angelita", "anhtuan", "anibal", "anica", "anika", "aniko", "aniyah", "anjali", "anjanette", "anjela", "ankie", "annabella", "annabeth", "annadiana", "anna-diana", "annadiane", "annamaria", "anna-maria", "annamarie", "anna-marie", "annarbor", "annemarie", "anne-marie", "annemarijke", "annemie", "annet", "annick", "annis", "annissa", "ann-lorrain", "annmaria", "ansley", "anstice", "anthe", "anthea", "anthia", "antonetta", "antoni", "antonie", "antonietta", "anton-phuoc", "anushka", "anver", "anwar", "anwen", "aoibhe", "appolonia", "aprilette", "apryle", "apurve", "arabel", "ardath", "ardavan", "ardeen", "ardelia", "ardelis", "ardie", "ardine", "ardis", "ardisj", "ardith", "ariane", "arianne", "aridatha", "ariela", "arielle", "arlana", "arlee", "arleen", "arlena", "arleta", "arlinda", "arline", "arluene", "arlyn", "arlyne", "armin", "armine", "arnett", "arnis", "arran", "arturo", "aruna", "arvind", "arwin", "asghar", "ashlan", "ashlee", "ashlen", "ashli", "ashlie", "ashtyn", "ashvini", "ashwin", "asmar", "asnat", "atalanta", "athalia", "athan", "athar", "athene", "atmane", "atsuo", "atsushi", "attilio", "attilla", "aubrie", "aubrielle", "aubry", "audie", "audivox", "audrie", "audrina", "audry", "audrye", "audwin", "augusto", "aundrea", "aurea", "aurel", "aurelea", "auroora", "austen", "austina", "austine", "avaline", "avinash", "aviva", "avivah", "avriella", "avrit", "ayanna", "aybars", "ayden", "ayesha", "ayisha", "azariah", "azhar", "azmeena", "azmina", "babak", "babita", "bachittar", "baets", "bahadir", "bahram", "balakrishna", "baldev", "baljinder", "bambi", "bambie", "barbabra", "barbaraanne", "barbara-anne", "barbe", "barbee", "barclay", "baris", "barlas", "barnes", "barney", "barton", "baruk", "basheer", "basia", "bassam", "baylor", "bcspatch", "beana", "beata", "beate", "beauregard", "becca", "beccy", "becka", "becki", "behdad", "behnam", "behrouz", "behzad", "beilul", "belissa", "belita", "bellamy", "bellanca", "bellatrix", "bendite", "benedetta", "benedicta", "benedikta", "benefits", "benjy", "benne", "bennesa", "bennet", "bennett", "benton", "beppie", "berangere", "beret", "berger", "bernadina", "bernadine", "bernardina", "bernardine", "bernelle", "bernhard", "berni", "bernie", "bernita", "berny", "berte", "berthe", "berti", "bertie", "bertina", "beryle", "bessie", "bessy", "bethan", "bethanie", "betta", "bette", "betteann", "bette-ann", "betteanne", "betty-ann", "betty-anne", "bettye", "beulah", "bevan", "bevin", "bevis", "bevvy", "bevyn", "bhagvat", "bianka", "bibbie", "bibbye", "biddie", "biddy", "billi", "billie", "billye", "binni", "binnie", "birendra", "birgit", "birgitta", "birgitte", "birmingham", "blaire", "blakelee", "blakeley", "blakely", "blanch", "blinni", "blinnie", "blinny", "blisse", "blithe", "blythe", "bnrecad", "bnrtor", "bobbe", "bobbee", "bobinette", "bodie", "bogdan", "bonnar", "bonnee", "bowen", "braden", "bradford", "bradwin", "brady", "brana", "brandais", "brande", "brandea", "branden", "brant", "braxton", "brayan", "brayden", "braydon", "breanne", "brear", "brechtje", "breck", "breckin", "brend", "brenden", "brendon", "brenn", "brennon", "brevin", "brevyn", "brianne", "bridgette", "briella", "brien", "brier", "brietta", "brighton", "briley", "brina", "briney", "brinley", "brinn", "bristol", "brita", "britni", "britta", "brittan", "britteny", "brittne", "brittni", "brock", "broden", "bronte", "bronwen", "bronwyn", "brunhilda", "bryana", "brydon", "brylee", "bryleigh", "bryler", "brynlee", "bryson", "bryton", "bucklin", "buford", "bulent", "burgess", "burton", "butch", "bvworks", "cacilia", "caiden", "caila", "cailin", "cailyn", "caine", "caius", "caleigh", "calhoun", "calida", "calla", "callie", "callista", "cally", "calum", "calypso", "camelia", "camella", "camellia", "camey", "camile", "camron", "camry", "camryn", "candee", "candi", "candra", "cantrell", "canute", "caoimhe", "caolan", "carena", "carenza", "caresa", "caressa", "caresse", "caril", "carilyn", "carin", "carine", "cariotta", "carlee", "carleen", "carlen", "carlene", "carley", "carling", "carlis", "carlisle", "carlita", "carlota", "carlynne", "carma", "carmelia", "carmelina", "carmelita", "carmina", "carmine", "carmita", "carmody", "carmon", "carolien", "caroljean", "carol-jean", "carolle", "carolyne", "carri", "carrissa", "carroll", "carsen", "carsten", "casie", "cason", "cassandre", "cassandry", "cassaundra", "cassiopeia", "cassondra", "castiel", "catarina", "catelyn", "catharine", "cathe", "cathee", "catherin", "catherina", "catina", "catja", "catlaina", "catlee", "catlin", "cayden", "caydon", "cayla", "cayleigh", "cayson", "cecilla", "cecily", "cefee", "celene", "celesta", "celia", "celie", "celinda", "celine", "celinka", "aa-", "ab-", "--1", "ac-", "ad-", "ae-", "af-", "al-", "am-", "an-", "ao-", "ap-", "av-", "aw-", "ax-", "ay-", "az-", "aQ-", "aR-", "aS-", "aT-", "aU-", "a5-", "a6-", "a7-", "a8-", "a9-", "a-g", "a-h", "a-i", "a-j", "a-k", "a-r", "a-s", "a-t", "a-u", "a-v", "a-D", "a-E", "a-F", "a-L", "a-M", "a-W", "a-Y", "a-Z", "a-0", "a-1", "a-8", "a-9", "a--", "ba-", "bb-", "bh-", "bi-", "bj-", "bk-", "bl-", "bq-", "br-", "bs-", "bt-", "bu-", "bC-", "bD-", "bE-", "bF-", "bG-", "bN-", "bO-", "bP-", "bV-", "bW-", "b1-", "b2-", "b3-", "b4-", "b5-", "b-a", "b-b", "b-c", "b-d", "b-e", "b-m", "b-n", "b-o", "b-p", "b-q", "b-w", "b-x", "b-y", "b-z", "b-G", "b-H", "b-I", "b-J", "b-K", "b-R", "b-S", "b-T", "b-U", "b-V", "b-4", "b-5", "b-6", "b-7", "b-8", "cd-", "ce-", "cf-", "cg-", "ch-", "cm-", "cn-", "co-", "cp-", "cq-", "cw-", "cx-", "cy-", "-11", "danbao", "fifa", "sber", "casino", "hotels", "xinqun", "checkout", "e-sim", "cryptoholder", "interior", "hotel", "pizza", "connect", "adviser", "promo", "mancity", "balance", "poker", "ebank", "blackjack", "deposit", "movie", "betmobile", "nickname", "currency", "internet", "tinder", "okpay", "okgame", "email", "e-mail", "b--", "ca-", "ci-", "cj-", "ck-", "cl-", "cr-", "cz-", "cB-", "cC-", "cS-", "cT-", "c0-", "c1-", "c2-", "c3-", "c4-", "c-c", "c-d", "c-e", "c-f", "c-g", "c-m", "c-n", "c-o", "c-p", "c-q", "c-v", "c-w", "c-x", "c-y", "c-z", "c-H", "c-I", "c-J", "c-K", "c-L", "c-U", "c-0", "c-1", "c-2", "c-3", "c-8", "c-9", "c--", "da-", "db-", "di-", "dj-", "dk-", "dl-", "dm-", "du-", "dv-", "dw-", "dx-", "dy-", "dE-", "dF-", "dG-", "dH-", "dN-", "dR-", "dS-", "dT-", "d1-", "d2-", "d3-", "d4-", "d5-", "d-a", "d-b", "d-c", "d-d", "d-e", "d-k", "d-l", "d-m", "d-n", "d-o", "d-u", "d-v", "d-w", "d-x", "d-y", "d-F", "d-G", "d-H", "d-I", "d-J", "d-Q", "d-R", "d-S", "d-T", "d-Z", "d-0", "d-1", "d-2", "d-3", "d-9", "d--", "ea-", "eb-", "ec-", "ej-", "ek-", "el-", "em-", "en-", "et-", "eu-", "ev-", "ew-", "ex-", "eD-", "eE-", "eF-", "eG-", "eH-", "eO-", "eP-", "eQ-", "eR-", "eS-", "eY-", "eZ-", "e0-", "e1-", "e2-", "e8-", "e9-", "e-a", "e-b", "e-c", "e-h", "e-i", "e-j", "e-k", "e-l", "e-q", "e-r", "e-s", "e-t", "e-u", "e-D", "e-E", "e-F", "e-G", "e-M", "0101", "010101", "1010", "10101", "111111", "1111111", "MegaUser", "hyperuser", "rootuser", "BadKarma", "clawmint1", "barosizm", "WhaleAlert", "betai", "betbot", "bettingai", "casinoai", "casinobot", "casino_ai", "Shopifybot", "ReplitAI", "ReplitBot"];
+        let activeFilters = { length: null, type: null };
+
+        function matchesLength(username, lengthFilter) {
+            const len = username.length;
+            switch(lengthFilter) {
+                case '3': return len === 3;
+                case '4': return len === 4;
+                case '5': return len === 5;
+                case '6': return len === 6;
+                case '7-8': return len >= 7 && len <= 8;
+                case '9-10': return len >= 9 && len <= 10;
+                case '11+': return len >= 11;
+                default: return true;
+            }
+        }
+
+        function matchesType(username, typeFilter) {
+            switch(typeFilter) {
+                case 'letters-only': return /^[a-zA-Z]+$/.test(username);
+                case 'numbers-only': return /^[0-9]+$/.test(username);
+                case 'has-numbers': return /[0-9]/.test(username);
+                case 'has-special': return /[^a-zA-Z0-9]/.test(username);
+                case 'capitalized': return /[A-Z]/.test(username);
+                default: return true;
+            }
+        }
+
+        function applyFilters() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            let filtered = allUsernames;
+
+            if (searchTerm !== '') filtered = filtered.filter(u => u.toLowerCase().includes(searchTerm));
+            if (activeFilters.length) filtered = filtered.filter(u => matchesLength(u, activeFilters.length));
+            if (activeFilters.type) filtered = filtered.filter(u => matchesType(u, activeFilters.type));
+
+            displayUsernames(filtered);
+            updateStats(allUsernames.length, filtered.length);
+            updateActiveFiltersDisplay();
+        }
+
+        function displayUsernames(usernames) {
+            const grid = document.getElementById('usernameGrid');
+            const noResults = document.getElementById('noResults');
+
+            if (usernames.length === 0) {
+                grid.style.display = 'none';
+                noResults.classList.add('show');
+                return;
+            }
+
+            grid.style.display = 'grid';
+            noResults.classList.remove('show');
+            grid.innerHTML = usernames.map(u => `
+                <div class="username-card" onclick="copyToClipboard('${u}')">
+                    <div class="username">@${u}</div>
+                    <div class="username-meta">${u.length} chars</div>
+                    <div class="copy-hint">Click to copy</div>
+                </div>
+            `).join('');
+        }
+
+        function updateActiveFiltersDisplay() {
+            const container = document.getElementById('activeFilters');
+            const tags = [];
+            if (activeFilters.length) {
+                tags.push(`<div class="active-filter-tag">Length: ${activeFilters.length}<span class="remove-filter" onclick="removeFilter('length')">×</span></div>`);
+            }
+            if (activeFilters.type) {
+                const labels = {'letters-only':'Letters Only','numbers-only':'Numbers Only','has-numbers':'Has Numbers','has-special':'Special Chars','capitalized':'Capitalized'};
+                tags.push(`<div class="active-filter-tag">${labels[activeFilters.type]}<span class="remove-filter" onclick="removeFilter('type')">×</span></div>`);
+            }
+            container.innerHTML = tags.join('');
+        }
+
+        function removeFilter(filterType) {
+            activeFilters[filterType] = null;
+            document.querySelectorAll(`[data-filter="${filterType}"]`).forEach(btn => btn.classList.remove('active'));
+            applyFilters();
+        }
+
+        function clearAllFilters() {
+            activeFilters = {length: null, type: null};
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('searchInput').value = '';
+            applyFilters();
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const filterType = this.dataset.filter;
+                const filterValue = this.dataset.value;
+                const wasActive = this.classList.contains('active');
+                
+                document.querySelectorAll(`[data-filter="${filterType}"]`).forEach(btn => btn.classList.remove('active'));
+
+                if (wasActive) {
+                    activeFilters[filterType] = null;
+                } else {
+                    this.classList.add('active');
+                    activeFilters[filterType] = filterValue;
+                }
+                applyFilters();
+            });
+        });
+
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => showToast()).catch(err => console.error('Copy error:', err));
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+
+        function updateStats(total, displayed) {
+            document.getElementById('totalCount').textContent = total;
+            document.getElementById('displayedCount').textContent = displayed;
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            applyFilters();
+        });
+    </script>
+</body>
+</html>
