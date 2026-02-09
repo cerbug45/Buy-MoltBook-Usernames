@@ -123,7 +123,6 @@
             fill: currentColor;
         }
 
-        /* Search Container */
         .search-container {
             margin: 40px 0;
             animation: slideDown 0.8s ease-out 0.6s both;
@@ -165,7 +164,6 @@
             color: var(--text-secondary);
         }
 
-        /* Filters */
         .filters-section {
             margin: 32px 0;
         }
@@ -231,7 +229,6 @@
             border-color: #ff6464;
         }
 
-        /* Stats */
         .stats {
             display: flex;
             justify-content: center;
@@ -259,7 +256,6 @@
             margin-top: 4px;
         }
 
-        /* Active Filters Display */
         .active-filters {
             display: flex;
             flex-wrap: wrap;
@@ -292,7 +288,6 @@
             opacity: 1;
         }
 
-        /* Username Grid */
         .username-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -361,7 +356,6 @@
             opacity: 1;
         }
 
-        /* Toast */
         .toast {
             position: fixed;
             bottom: 32px;
@@ -382,7 +376,6 @@
             opacity: 1;
         }
 
-        /* No Results */
         .no-results {
             text-align: center;
             padding: 80px 24px;
@@ -554,93 +547,4 @@
     </div>
 
     <script>
-        let allUsernames = [];
-        let activeFilters = {
-            length: null,
-            type: null
-        };
-
-        // Load usernames
-        async function loadUsernames() {
-            try {
-                const response = await fetch('usernames.json');
-                const data = await response.json();
-                allUsernames = data.usernames;
-                applyFilters();
-                updateStats(allUsernames.length, allUsernames.length);
-            } catch (error) {
-                console.error('Error loading usernames:', error);
-            }
-        }
-
-        // Filter functions
-        function matchesLength(username, lengthFilter) {
-            const len = username.length;
-            switch(lengthFilter) {
-                case '3': return len === 3;
-                case '4': return len === 4;
-                case '5': return len === 5;
-                case '6': return len === 6;
-                case '7-8': return len >= 7 && len <= 8;
-                case '9-10': return len >= 9 && len <= 10;
-                case '11+': return len >= 11;
-                default: return true;
-            }
-        }
-
-        function matchesType(username, typeFilter) {
-            switch(typeFilter) {
-                case 'letters-only':
-                    return /^[a-zA-Z]+$/.test(username);
-                case 'numbers-only':
-                    return /^[0-9]+$/.test(username);
-                case 'has-numbers':
-                    return /[0-9]/.test(username);
-                case 'has-special':
-                    return /[^a-zA-Z0-9]/.test(username);
-                case 'capitalized':
-                    return /[A-Z]/.test(username);
-                default:
-                    return true;
-            }
-        }
-
-        function applyFilters() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
-            
-            let filtered = allUsernames;
-
-            // Apply search
-            if (searchTerm !== '') {
-                filtered = filtered.filter(username => 
-                    username.toLowerCase().includes(searchTerm)
-                );
-            }
-
-            // Apply length filter
-            if (activeFilters.length) {
-                filtered = filtered.filter(username => 
-                    matchesLength(username, activeFilters.length)
-                );
-            }
-
-            // Apply type filter
-            if (activeFilters.type) {
-                filtered = filtered.filter(username => 
-                    matchesType(username, activeFilters.type)
-                );
-            }
-
-            displayUsernames(filtered);
-            updateStats(allUsernames.length, filtered.length);
-            updateActiveFiltersDisplay();
-        }
-
-        // Display usernames
-        function displayUsernames(usernames) {
-            const grid = document.getElementById('usernameGrid');
-            const noResults = document.getElementById('noResults');
-
-            if (usernames.length === 0) {
-                grid.style.display = 'none';
-                noResults.
+["which", "available", "books", "daily", "island", "direct", "rules", "submit", "wanted", "operations", "excellent", "award", "completed", "traditional", "benefit", "watches", "musical", "colorado", "commerce", "ringtones", "scientific", "accounting", "generation", "arizona", "worked", "ipod", "baseball", "codes", "senate", "portable", "warranty", "professionals", "parameters", "vendor", "referred", "rings", "ticket", "conversion", "revision", "hole", "transit", "concern", "cables", "starts", "britain", "weblog", "portland", "typical", "governor", "swimming", "romance", "powers", "cinema", "humor", "lived", "flying", "cookies", "commissioner", "principle", "gross", "trend", "rhode", "scottish", "judgment", "inter", "ranking", "palace", "wins", "chile", "hungary", "nikon", "roses", "wooden", "incident", "diverse", "compaq", "florist", "packard", "encouraged", "loves", "dealtime", "holland", "quiz", "sleeping", "careful", "skype", "discharge", "acute", "northeast", "retired", "grew", "mobility", "activation", "toner", "locator", "regime", "hdtv", "scenario", "lovers", "testimony", "isolated", "bangladesh", "ecology", "unions", "warrant", "rochester", "stops", "guided", "impressive", "lectures", "landing", "absent", "sells", "ecuador", "millennium", "reflects", "cattle", "tile", "inquiries", "tribal", "dayton", "innocent", "syria", "interact", "handy", "mixing", "fitted", "transexual", "adipex", "lonely", "latitude", "tubes", "belly", "disturbed", "powerpoint", "alpine", "andale", "prospect", "homeland", "sheffield", "incomplete", "nightlife", "metallica", "naughty", "breathing", "gothic", "cigarettes", "patrol", "pest", "italiano", "renew", "antigua", "troubleshooting", "lasting", "whats", "banners", "gore", "passive", "scenic", "renewable", "issn", "firewire", "vsnet", "revisions", "papua", "bumper", "focal", "penetration", "terrain", "dependence", "exclusion", "flyer", "cameroon", "madness", "numeric", "cakes", "beside", "optimize", "namespace", "greensboro", "apnic", "naples", "prozac", "glucose", "persian", "choir", "poultry", "gentleman", "maiden", "fares", "ec2-user", "azureuser", "ablaze", "acetone", "alarm", "aliens", "alike", "arrive", "ashes", "astonish", "aviation", "baboon", "bonding", "bounce", "bristle", "browse", "brunette", "bullseye", "caboose", "cameo", "capitol", "captivate", "cautious", "cavalier", "cheek", "condiment", "copier", "cornflake", "craftsman", "crawfish", "crusher", "cubicle", "custard", "cytoplasm", "deface", "defiance", "defrost", "deity", "delicious", "doodle", "doorstep", "douche", "dreamboat", "duchess", "economist", "enamel", "energize", "enforced", "enjoyably", "excavator", "exclaim", "exquisite", "fifteen", "finale", "flyaway", "freeway", "friction", "garbage", "geiger", "grandpa", "hacksaw", "handlebar", "handsaw", "hangover", "hurler", "hurry", "icky", "illusion", "immersion", "jackpot", "jujitsu", "legume", "lethargic", "linguist", "matador", "modulator", "monsieur", "moonwalk", "morphine", "nanny", "nutty", "obedience", "octagon", "omission", "pandemic", "paprika", "pesky", "petunia", "prankish", "primal", "pristine", "probiotic", "prominent", "rehab", "relight", "remark", "remission", "replace", "safely", "salsa", "sandbank", "scandal", "scoff", "sequester", "serpent", "shamrock", "shiftless", "shon
