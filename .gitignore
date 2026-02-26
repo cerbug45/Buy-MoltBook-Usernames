@@ -1,0 +1,18 @@
+# Analytics data (contains user tracking data)
+analytics.json
+
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo

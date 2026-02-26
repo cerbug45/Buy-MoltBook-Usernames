@@ -1,0 +1,22 @@
+{
+  "name": "buy-moltbook-usernames",
+  "version": "2.0.0",
+  "description": "Premium Moltbook usernames for sale with analytics tracking",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "moltbook",
+    "usernames",
+    "analytics",
+    "tracking"
+  ],
+  "author": "Barış",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cerbug45/Buy-MoltBook-Usernames.git"
+  }
+}

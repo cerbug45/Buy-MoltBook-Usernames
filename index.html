@@ -193,6 +193,24 @@
         .stat-badge.clicks { background: rgba(123,47,247,0.1); color: var(--accent-secondary); }
         .copy-hint { font-size: 0.7rem; color: var(--text-secondary); margin-top: 8px; opacity: 0; transition: opacity 0.3s ease; }
         .username-card:hover .copy-hint { opacity: 1; }
+        .trending-section { margin: 48px 0; }
+        .trending-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+        .trending-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 120px;
+        }
+        .trending-card:hover { border-color: var(--accent-primary); transform: translateY(-2px); }
+        .trend-rank { font-size: 1.5rem; font-weight: 700; color: var(--accent-primary); }
+        .trend-name { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; margin: 4px 0; }
+        .trend-clicks { font-size: 0.75rem; color: var(--text-secondary); }
         .toast {
             position: fixed;
             bottom: 32px;
@@ -320,6 +338,9 @@
         let allUsernames = [];
         let stats = { totalViews: 0, totalClicks: 0 };
         let activeFilters = { length: null, type: null };
+        const API_BASE = ''; // Same origin
+        const USE_BACKEND = true; // Set to false to use localStorage only
+        let viewedUsernames = new Set(); // Prevent duplicate views per session
 
         // Load data
         async function loadData() {
@@ -331,15 +352,39 @@
                     views: u.views || 0,
                     clicks: u.clicks || 0
                 }));
-                loadStats();
+                await loadStats();
                 applyFilters();
+                loadTrending();
             } catch (error) {
                 console.error('Error loading data:', error);
             }
         }
 
-        // Load stats from localStorage
-        function loadStats() {
+        // Load stats from backend API or localStorage
+        async function loadStats() {
+            if (USE_BACKEND) {
+                try {
+                    const response = await fetch(`${API_BASE}/api/analytics`);
+                    const analytics = await response.json();
+                    
+                    // Merge backend stats with local data
+                    allUsernames.forEach(u => {
+                        if (analytics.views[u.username]) u.views = analytics.views[u.username];
+                        if (analytics.clicks[u.username]) u.clicks = analytics.clicks[u.username];
+                    });
+                    
+                    stats.totalViews = analytics.totalViews || 0;
+                    stats.totalClicks = analytics.totalClicks || 0;
+                } catch (e) {
+                    console.warn('Backend analytics not available, using localStorage');
+                    loadStatsLocal();
+                }
+            } else {
+                loadStatsLocal();
+            }
+        }
+
+        function loadStatsLocal() {
             const saved = localStorage.getItem('usernameStats');
             if (saved) {
                 const parsed = JSON.parse(saved);
@@ -354,8 +399,8 @@
             }
         }
 
-        // Save stats to localStorage
-        function saveStats() {
+        // Save stats to localStorage (fallback)
+        function saveStatsLocal() {
             const toSave = {};
             allUsernames.forEach(u => {
                 toSave[u.username] = { views: u.views, clicks: u.clicks };
@@ -363,25 +408,128 @@
             localStorage.setItem('usernameStats', JSON.stringify(toSave));
         }
 
-        // Track view
-        function trackView(username) {
-            const user = allUsernames.find(u => u.username === username);
-            if (user) {
-                user.views++;
-                stats.totalViews++;
-                saveStats();
-                updateTotalStats();
+        // Track view (backend + localStorage fallback)
+        async function trackView(username) {
+            // Prevent duplicate views in same session
+            if (viewedUsernames.has(username)) return;
+            viewedUsernames.add(username);
+
+            if (USE_BACKEND) {
+                try {
+                    await fetch(`${API_BASE}/api/track`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ username, action: 'view' })
+                    });
+                    // Update local stats optimistically
+                    const user = allUsernames.find(u => u.username === username);
+                    if (user) {
+                        user.views++;
+                        stats.totalViews++;
+                        updateTotalStats();
+                    }
+                } catch (e) {
+                    // Fallback to localStorage
+                    const user = allUsernames.find(u => u.username === username);
+                    if (user) {
+                        user.views++;
+                        stats.totalViews++;
+                        saveStatsLocal();
+                        updateTotalStats();
+                    }
+                }
+            } else {
+                const user = allUsernames.find(u => u.username === username);
+                if (user) {
+                    user.views++;
+                    stats.totalViews++;
+                    saveStatsLocal();
+                    updateTotalStats();
+                }
             }
         }
 
-        // Track click
-        function trackClick(username) {
-            const user = allUsernames.find(u => u.username === username);
-            if (user) {
-                user.clicks++;
-                stats.totalClicks++;
-                saveStats();
-                updateTotalStats();
+        // Track click (backend + localStorage fallback)
+        async function trackClick(username) {
+            if (USE_BACKEND) {
+                try {
+                    const response = await fetch(`${API_BASE}/api/track`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ username, action: 'click' })
+                    });
+                    const result = await response.json();
+                    // Update local stats with backend response
+                    const user = allUsernames.find(u => u.username === username);
+                    if (user) {
+                        user.views = result.views || user.views;
+                        user.clicks = result.clicks || user.clicks;
+                        stats.totalClicks++;
+                        updateTotalStats();
+                    }
+                } catch (e) {
+                    // Fallback to localStorage
+                    const user = allUsernames.find(u => u.username === username);
+                    if (user) {
+                        user.clicks++;
+                        stats.totalClicks++;
+                        saveStatsLocal();
+                        updateTotalStats();
+                    }
+                }
+            } else {
+                const user = allUsernames.find(u => u.username === username);
+                if (user) {
+                    user.clicks++;
+                    stats.totalClicks++;
+                    saveStatsLocal();
+                    updateTotalStats();
+                }
+            }
+        }
+
+        // Load trending usernames
+        async function loadTrending() {
+            try {
+                const response = await fetch(`${API_BASE}/api/trending`);
+                const trending = await response.json();
+                if (trending.length > 0) {
+                    updateTrendingSection(trending);
+                }
+            } catch (e) {
+                // Silent fail - trending is optional
+            }
+        }
+
+        function updateTrendingSection(trending) {
+            let section = document.getElementById('trendingSection');
+            if (!section) {
+                // Create trending section if not exists
+                const statsDiv = document.querySelector('.stats');
+                section = document.createElement('div');
+                section.id = 'trendingSection';
+                section.className = 'trending-section';
+                section.innerHTML = '<h3 style="text-align:center;color:var(--accent-primary);margin:24px 0;">🔥 Trending Usernames</h3><div class="trending-grid" id="trendingGrid"></div>';
+                statsDiv.parentNode.insertBefore(section, statsDiv.nextSibling);
+            }
+            
+            const grid = document.getElementById('trendingGrid');
+            grid.innerHTML = trending.map((t, i) => `
+                <div class="trending-card" onclick="scrollToUsername('${t.username}')">
+                    <span class="trend-rank">#${i + 1}</span>
+                    <span class="trend-name">@${t.username}</span>
+                    <span class="trend-clicks">${t.clicks} clicks</span>
+                </div>
+            `).join('');
+        }
+
+        function scrollToUsername(username) {
+            const card = Array.from(document.querySelectorAll('.username-card'))
+                .find(el => el.textContent.includes(username));
+            if (card) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                card.style.borderColor = 'var(--accent-primary)';
+                setTimeout(() => card.style.borderColor = '', 2000);
             }
         }
 
@@ -435,10 +583,7 @@
 
             grid.style.display = 'grid';
             noResults.classList.remove('show');
-            grid.innerHTML = usernames.map(u => {
-                // Track view on render (visible)
-                trackView(u.username);
-                return `
+            grid.innerHTML = usernames.map(u => `
                 <div class="username-card" onclick="handleCardClick('${u.username}')">
                     <div class="username">@${u.username}</div>
                     <div class="username-meta">${u.username.length} chars</div>
@@ -448,7 +593,10 @@
                     </div>
                     <div class="copy-hint">Click to copy</div>
                 </div>
-            `}).join('');
+            `).join('');
+
+            // Track views for visible usernames (only once per session)
+            usernames.forEach(u => trackView(u.username));
         }
 
         function handleCardClick(username) {
